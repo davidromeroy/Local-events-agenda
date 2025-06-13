@@ -117,37 +117,40 @@ ionic cordova platform rm android (Usar para eliminar la plataforma y volverla a
 
 ### 🖼 Capturas reales de la app
 
-#### 🏠 Página de inicio
-![Home](media/Home.png)
-
-#### 📂 Filtros disponibles
-- Tipo de filtro seleccionado:
-  ![Filter Type](media/filterType.png)
-
-- Filtro por duración:
-  ![Filtro por Duración](media/FiltroPorDuracion.png)
-
-- Filtro por fecha:
-  ![Filtro por Fecha](media/FiltroPorFecha.png)
-
-- Rango de fechas:
-  ![Filtro por Rango de Fechas](media/FiltroPorRangoFechas.png)
-
-- Resultado del filtro por rango de fechas:
-  ![Filtro por Rango de Fechas Resultado](media/FiltroPorRangoFechasResult.png)
-
-#### ⭐ Favoritos
-![Favoritos](media/Favorites.png)
-
-#### 📅 Orden por más antiguos/recientes
-![Orden por Fecha](media/sortOlder.png)
-
-#### 🗂 Detalle del evento
-![Detalle Evento](media/DetallesEvento.png)
-
-#### 📹 Detalle con video de YouTube
-![Detalle Evento Video YT](media/DetallesEventoVideoYT.png)
-
+<table>
+  <tr>
+    <th>🏠 Inicio</th>
+    <th>⭐ Favoritos</th>
+    <th>🔘 Tipo de filtro</th>
+    <th>⏱ Filtro por duración</th>
+  </tr>
+  <tr>
+    <td><img src="media/Home.png" width="220"/></td>
+    <td><img src="media/Favorites.png" width="220"/></td>
+    <td><img src="media/filterType.png" width="220"/></td>
+    <td><img src="media/FiltroPorDuracion.png" width="220"/></td>
+  </tr>
+  <tr>
+    <th>📅 Filtro por fecha</th>
+    <th>📆 Rango de fechas</th>
+    <th>✅ Resultado del rango</th>
+    <th>🔃 Ordenar por fecha</th>
+  </tr>
+  <tr>
+    <td><img src="media/FiltroPorFecha.png" width="220"/></td>
+    <td><img src="media/FiltroPorRangoFechas.png" width="220"/></td>
+    <td><img src="media/FiltroPorRangoFechasResult.png" width="220"/></td>
+    <td><img src="media/sortOlder.png" width="220"/></td>
+  </tr>
+  <tr>
+    <th>📄 Detalle del evento</th>
+    <th>🎥 Detalle con video YouTube</th>
+  </tr>
+  <tr>
+    <td><img src="media/DetallesEvento.png" width="220"/></td>
+    <td><img src="media/DetallesEventoVideoYT.png" width="220"/></td>
+  </tr>
+</table>
 
 ---
 
