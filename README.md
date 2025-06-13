@@ -115,23 +115,38 @@ ionic cordova platform rm android (Usar para eliminar la plataforma y volverla a
 
 ---
 
-### 📱 Capturas de pantalla (mockup)
+### 🖼 Capturas reales de la app
 
-#### 🗂 Lista de eventos
+#### 🏠 Página de inicio
+![Home](media/Home.png)
 
-![Lista de eventos](screenshots/event-list.png)
+#### 📂 Filtros disponibles
+- Tipo de filtro seleccionado:
+  ![Filter Type](media/filterType.png)
 
-#### 📄 Detalle del evento
+- Filtro por duración:
+  ![Filtro por Duración](media/FiltroPorDuracion.png)
 
-![Detalle de evento](screenshots/event-detail.png)
+- Filtro por fecha:
+  ![Filtro por Fecha](media/FiltroPorFecha.png)
 
-#### 🗺 Mapa de ubicación
+- Rango de fechas:
+  ![Filtro por Rango de Fechas](media/FiltroPorRangoFechas.png)
 
-![Mapa de evento](screenshots/event-map.png)
+- Resultado del filtro por rango de fechas:
+  ![Filtro por Rango de Fechas Resultado](media/FiltroPorRangoFechasResult.png)
 
-#### 📹 Video embebido
+#### ⭐ Favoritos
+![Favoritos](media/Favorites.png)
 
-![Video YouTube](screenshots/event-video.png)
+#### 📅 Orden por más antiguos/recientes
+![Orden por Fecha](media/sortOlder.png)
+
+#### 🗂 Detalle del evento
+![Detalle Evento](media/DetallesEvento.png)
+
+#### 📹 Detalle con video de YouTube
+![Detalle Evento Video YT](media/DetallesEventoVideoYT.png)
 
 
 ---

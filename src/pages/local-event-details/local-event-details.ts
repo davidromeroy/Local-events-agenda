@@ -140,35 +140,35 @@ export class LocalEventDetailsPage {
 
   loadMap() {;
   /////////////////////
-  // const lat = this.event.latitude;
-  // const lng = this.event.longitude;
-  // const rawUrl = `https://www.google.com/maps?q=${lat},${lng}&z=15&output=embed`;
+  const lat = this.event.latitude;
+  const lng = this.event.longitude;
+  const rawUrl = `https://www.google.com/maps?q=${lat},${lng}&z=15&output=embed`;
   
-  // this.mapUrl = this.sanitizer.bypassSecurityTrustResourceUrl(rawUrl);
-  // console.log(this.mapUrl)
+  this.mapUrl = this.sanitizer.bypassSecurityTrustResourceUrl(rawUrl);
+  console.log(this.mapUrl)
   /////////////////////
 
-  if ( !this.event.latitude || !this.event.longitude) {
-    console.error('No hay coordenadas válidas para mostrar el mapa.');
-    return;
-  }
+  // if ( !this.event.latitude || !this.event.longitude) {
+  //   console.error('No hay coordenadas válidas para mostrar el mapa.');
+  //   return;
+  // }
 
-  let latLng = new google.maps.LatLng(this.event.latitude, this.event.longitude);
+  // let latLng = new google.maps.LatLng(this.event.latitude, this.event.longitude);
 
-    let mapOptions = {
-      center: latLng,
-      zoom: 15,
-      mapTypeId: google.maps.MapTypeId.ROADMAP
-    };
+  //   let mapOptions = {
+  //     center: latLng,
+  //     zoom: 15,
+  //     mapTypeId: google.maps.MapTypeId.ROADMAP
+  //   };
 
-    this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions);
+  //   this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions);
 
-    let marker = new google.maps.Marker({
-      map: this.map,
-      position: latLng,
-      title: 'Ubicación desde API'
-    });
-    console.log(marker);
+  //   let marker = new google.maps.Marker({
+  //     map: this.map,
+  //     position: latLng,
+  //     title: 'Ubicación desde API'
+  //   });
+  //   console.log(marker);
   }
 
   // async loadMapAndRoute() {
