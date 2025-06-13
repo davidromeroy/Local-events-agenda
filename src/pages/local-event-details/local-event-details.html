@@ -1,0 +1,73 @@
+<!--
+  Generated template for the PagesFilmDetailsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>{{ event?.title | titlecase}}</ion-title>
+    <button ion-button slot="end" (click)="toggleFavorite()">
+        <ion-icon name="star" slot="icon-only" *ngIf="isFavorite"></ion-icon>
+        <ion-icon name="star-outline" slot="icon-only" *ngIf="!isFavorite"></ion-icon>
+    </button>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding *ngIf="event">
+  <ion-card class="local-event-card" lines="none">
+
+    <!-- CARRUSEL -->
+    <ion-slides 
+      #slides 
+      pager 
+      autoplay="3000" 
+      loop="true" 
+      speed="1000" 
+      class="local-event-img">
+      <ion-slide *ngFor="let img of event.carrusel">
+        <img [src]="img.url"  style="width: 100%; height: auto"/>
+      </ion-slide>
+    </ion-slides>
+
+    <!-- INFO CARD -->
+    <ion-card-content lines="none">
+      <p><strong>Descripción:</strong></p> 
+      <div [innerHTML]="event.description"></div> <!-- TODO: Revisar su uso -->
+
+      <p><strong>ID:</strong> {{ event.id }}</p>
+      <p><strong>Inicio:</strong> {{ event.event_start }}</p>
+      <p><strong>Fin:</strong> {{ event.event_end }}</p>
+      <!-- <p><strong>Coordenadas:</strong> {{ event.latitude }} {{ event.longitude }}</p> -->
+      <p><strong>Organizador:</strong> {{ event.organizer }}</p>
+      <p><strong>Precio:</strong> {{ event.price }} $</p>
+      <p><strong>Lugar:</strong> {{ event.location_name }}</p>
+    </ion-card-content>
+
+    <!-- ---------------------------------------- -->
+    <!-- SEGMENTO PARA ELEGIR ENTRE MAPA O VIDEO -->
+    <!-- <ion-label>Mostrar contenido extra</ion-label> -->
+    <ion-segment [(ngModel)]="selectedExtraType" *ngIf="videoHTML || hayCoordenadasDelMapa" (ionChange)="onSegmentChanged(selectedExtraType)" >
+      <ion-segment-button value="mapa">
+        <ion-label>Mapa</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="video">
+        <ion-label>Video</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+  
+    <!-- ---------------------------------------- -->
+    <!-- MAPA -->
+    <div *ngIf="selectedExtraType === 'mapa'" margin-top="24px" #map id="map" style="height: 300px;"></div>
+    
+    <!-- YOUTUBE VIDEO EMBED TODO: EDITAR PARA CADA EVENTO -->
+    <div *ngIf="selectedExtraType === 'video' && videoHTML" class="video-container" [innerHTML]="videoHTML"></div>
+    
+    <!-- COMPARTIR EVENTO -->
+    <!-- <button ion-button full (click)="shareEventByEmail()">Share by Email</button> -->
+    <button ion-button full color="second" (click)="shareEvent()">
+      <ion-icon name="share"></ion-icon>
+       Compartir evento
+    </button>
+  </ion-card>
+</ion-content>

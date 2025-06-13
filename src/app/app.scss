@@ -1,5 +1,63 @@
 // http://ionicframework.com/docs/theming/
 
+// Tabs
+.tabbar  {
+    background-color: #000 !important;
+    .tab-button {
+        &:hover {
+            background-color: color($colors,dark, 0.8) !important;
+        }
+    }
+}
+
+.tab-button .tab-button-icon,
+.tab-button .tab-button-text {
+    color: #aaa !important;
+    &:hover {
+        transform: scale(1.05) !important;
+    }
+}
+
+.tab-button[aria-selected="true"] .tab-button-icon,
+.tab-button[aria-selected="true"] .tab-button-text {
+    color: color($colors,second) !important;
+}
+
+ion-header {
+  .toolbar-background{
+    background-color: color($colors,darkness);
+    &:hover {
+      background-color: color($colors,darkness, 0.8); //!important;
+    }
+  }
+  .toolbar-title {
+    color: color($colors,light) !important; // opcional, para que el texto sea visible
+  }
+  .back-button {
+        color: color($colors, light);
+  }
+}
+
+//
+ion-card, ion-content, ion-item, .ion-page, p {
+  background-color: color($colors,dark) !important;
+  color: color($colors,light) !important; // opcional, para que el texto sea visible
+  .item-inner {
+      border: 0;// !important;
+  }
+}
+
+
+iframe {
+  max-width: 100% !important; /* que no exceda el contenedor */
+  width: 100% !important;     /* que se estire al ancho */
+  height: auto !important;    /* que la altura se ajuste automáticamente */
+  aspect-ratio: 16 / 9;       /* mantener relación 16:9 */
+  border: none;
+  display: block;
+}
+
+
 
 // App Global Sass
 // --------------------------------------------------

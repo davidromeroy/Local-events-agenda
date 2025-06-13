@@ -1,0 +1,95 @@
+<!--
+  Generated template for the PokemonsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar >
+    <ion-title>Eventos Locales {{ showFavorites ? '- Favoritos' : '' }}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <!-- FILTROS -->
+  <button ion-button slot="end" class="order-button" clear (click)="toggleSortOrder()" >
+      Cambiar a ({{ !orderAsc ? 'Más recientes' : 'Más antiguos' }})
+  </button>
+  <button ion-button slot="end" class="order-button" clear (click)="cleanFields()"> <!-- *ngIf="dateFrom && dateTo"> -->
+      Limpiar campos
+  </button>
+  <button ion-button slot="end" class="order-button" clear (click)="filterByFavorites()">
+      ({{ showFavorites ? 'Mostrar todos' : 'Mostrar favoritos' }})
+  </button>
+
+  <!-- --------------------------------------------- -->
+  <!-- Selector del tipo de filtro -->
+  <ion-item>
+    <ion-label>Tipo de filtro</ion-label>
+    <ion-select [(ngModel)]="selectedFilterType">
+      <!-- <ion-option value=""></ion-option> -->
+      <ion-option value="rango">Por rango de fechas</ion-option>
+      <ion-option value="duracion">Por duración</ion-option>
+      <ion-option value="relativa">Por fecha relativa</ion-option>
+    </ion-select>
+  </ion-item>
+
+  <!-- --------------------------------------------- -->
+  <!-- FILTRO POR RANGO DE FECHAS -->
+  <div *ngIf="selectedFilterType === 'rango'">
+    <ion-item>
+      <ion-label>Desde</ion-label>
+      <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="dateFrom"></ion-datetime>
+    </ion-item>
+    <ion-item>
+      <ion-label>Hasta</ion-label>
+      <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="dateTo"></ion-datetime>
+    </ion-item>
+    <button ion-button full class="filter-button" (click)="applyDateFilter()">Filtrar por rango de fechas</button>
+  </div>
+
+  <!-- -------------------------------------------- -->
+  <!-- SEGMENTOS -->
+  <!-- Filtro por duración -->
+  <div *ngIf="selectedFilterType === 'duracion'">
+    <ion-label>Filtrar por duración</ion-label>
+    <ion-segment [(ngModel)]="selectedDuration" (click)="selectDuration(selectedDuration)">
+      <ion-segment-button value="all">Todos</ion-segment-button>
+      <ion-segment-button value="short">&lt;30 min</ion-segment-button>
+      <ion-segment-button value="medium">30–60 min</ion-segment-button>
+      <ion-segment-button value="long">&gt;60 min</ion-segment-button>
+    </ion-segment>
+  </div>
+
+  <!-- ---------------------------------------------------------- -->
+  <!-- CHIPS -->
+  <!-- Filtro por fecha -->
+  <div *ngIf="selectedFilterType === 'relativa'">
+    <ion-label>Filtrar por Fecha</ion-label>
+    <ion-chip *ngFor="let option of dateOptions"
+              [color]="selectedDateFilter === option.value ? 'second' : 'light'"
+              (click)="selectDate(option.value)">
+      <ion-label>{{ option.label }}</ion-label>
+    </ion-chip>
+  </div>
+
+  <!-- ---------------------------------------------------------- -->
+  <!-- GALERIA DE EVENTOS -->
+  <div class="event-gallery">
+    <div 
+      class="event-card" 
+      *ngFor="let event of filteredEvents" 
+      (click)="openDetails(event)" 
+    >
+      <!-- THUMBNAIL/IMAGEN DESTACADA -->
+      <img [src]="event.destacada[0]" class="event-img" />
+
+      <!-- INFO IMPORTANTE DEL EVENTO -->
+      <div class="event-title">{{ event.title | titlecase }}</div>
+      <p class="event-date">
+        <strong>Fecha:</strong> {{ event.event_start }}
+      </p>
+
+    </div>
+  </div>
+</ion-content>

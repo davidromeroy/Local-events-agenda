@@ -11,4 +11,12 @@ export class HomePage {
 
   }
 
+  goToLocalEvents() {
+    this.navCtrl.push('LocalEventsPage');
+  }
+
+  goToTabsPage() {
+    this.navCtrl.push('TabsPage');
+  }
+
 }
