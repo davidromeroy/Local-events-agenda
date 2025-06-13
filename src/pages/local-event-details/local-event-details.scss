@@ -20,6 +20,18 @@ page-local-event-details {
         border: none;
     }
 
+    strong {
+        color: color($colors, second); // Azul por defecto de Ionic
+    }
+
+    .segment-md .segment-button {
+        color: color($colors, second);
+    }
+
+    .segment-md .segment-button[aria-pressed="true"] {
+        border-color: color($colors, second);
+    }
+
 
     // Estilo específico para la página de detalles del evento
 

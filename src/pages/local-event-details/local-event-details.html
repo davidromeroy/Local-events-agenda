@@ -6,7 +6,7 @@
 -->
 <ion-header>
   <ion-navbar>
-    <ion-title>{{ event?.title | titlecase}}</ion-title>
+    <ion-title>{{ event?.title | titlecase}} - {{ event?.event_start }}</ion-title>
     <button ion-button slot="end" (click)="toggleFavorite()">
         <ion-icon name="star" slot="icon-only" *ngIf="isFavorite"></ion-icon>
         <ion-icon name="star-outline" slot="icon-only" *ngIf="!isFavorite"></ion-icon>
@@ -35,11 +35,12 @@
       <p><strong>Descripción:</strong></p> 
       <div [innerHTML]="event.description"></div> <!-- TODO: Revisar su uso -->
 
-      <p><strong>ID:</strong> {{ event.id }}</p>
-      <p><strong>Inicio:</strong> {{ event.event_start }}</p>
-      <p><strong>Fin:</strong> {{ event.event_end }}</p>
+      <!-- <p><strong>ID:</strong> {{ event.id }}</p> -->
+      <!-- <p><strong>Inicio:</strong> {{ event.event_start }}</p>
+      <p><strong>Fin:</strong> {{ event.event_end }}</p> -->
+      <p><strong>Duración:</strong> {{ duration }}</p>
       <!-- <p><strong>Coordenadas:</strong> {{ event.latitude }} {{ event.longitude }}</p> -->
-      <p><strong>Organizador:</strong> {{ event.organizer }}</p>
+      <p *ngIf="event.organizer"><strong>Organizador:</strong> {{ event.organizer }}</p>
       <p><strong>Precio:</strong> {{ event.price }} $</p>
       <p><strong>Lugar:</strong> {{ event.location_name }}</p>
     </ion-card-content>
@@ -47,7 +48,7 @@
     <!-- ---------------------------------------- -->
     <!-- SEGMENTO PARA ELEGIR ENTRE MAPA O VIDEO -->
     <!-- <ion-label>Mostrar contenido extra</ion-label> -->
-    <ion-segment [(ngModel)]="selectedExtraType" *ngIf="videoHTML || hayCoordenadasDelMapa" (ionChange)="onSegmentChanged(selectedExtraType)" >
+    <ion-segment [(ngModel)]="selectedExtraType" (ionChange)="onSegmentChanged(selectedExtraType)" >      <!-- *ngIf="videoHTML" -->
       <ion-segment-button value="mapa">
         <ion-label>Mapa</ion-label>
       </ion-segment-button>

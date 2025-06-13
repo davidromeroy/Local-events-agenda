@@ -32,6 +32,7 @@ export class LocalEventDetailsPage {
   mapUrl: any;
   videoHTML: SafeHtml;
   selectedExtraType: string = ''; // valores posibles: 'map', 'video'
+  duration: string = '';
 
   constructor(
     public navCtrl: NavController, 
@@ -61,6 +62,7 @@ export class LocalEventDetailsPage {
       } else {
         this.videoHTML = null;
       }
+      this.duration = this.getDurationEvent(this.event);
       // this.loadMapAndRoute();
     } catch (error) {
       console.error('Error al cargar detalles', error);
@@ -87,16 +89,28 @@ export class LocalEventDetailsPage {
   //   this.emailComposer.open(email);
   // }
 
-  getDurationInMinutes(event: any): number {
+  getDurationEvent(event: any): string {
     const start = moment(event.event_start, "DD/MM/YYYY h:mm a");
     const end = moment(event.event_end, "DD/MM/YYYY h:mm a");
-    
+
     if (!start.isValid() || !end.isValid()) {
       console.warn("Fechas inválidas para evento:", event);
-      return 0;
+      return "0min";
     }
-    
-    return end.diff(start, 'minutes');
+
+    const duration = end.diff(start, 'minutes');
+    const hours = Math.floor(duration / 60);
+    const minutes = duration % 60;
+
+    if (hours > 0 && minutes > 0) {
+      return `${hours}h ${minutes}min`;
+    } else if (hours > 0) {
+      return `${hours}h`;
+    } else if (minutes > 0) {
+      return `${minutes}min`;
+    } else {
+      return "-"; // O "—" si prefieres ocultar duraciones nulas
+    }
   }
   
   shareEvent() {
