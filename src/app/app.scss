@@ -39,7 +39,7 @@ ion-header {
 }
 
 //
-ion-card, ion-content, ion-item, .ion-page, p {
+ion-card, ion-content, ion-item, p {
   background-color: color($colors,dark) !important;
   color: color($colors,light) !important; // opcional, para que el texto sea visible
   .item-inner {

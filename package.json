@@ -36,6 +36,7 @@
   },
   "devDependencies": {
     "@ionic/app-scripts": "3.2.4",
+    "@ionic/lab": "3.2.15",
     "cordova-android": "^13.0.0",
     "cordova-plugin-device": "^2.0.2",
     "cordova-plugin-geolocation": "^4.1.0",
