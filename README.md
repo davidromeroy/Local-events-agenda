@@ -33,7 +33,7 @@ Este proyecto fue desarrollado con **Ionic 3** y Angular. Incluye característic
 Clona el repositorio:
 
 ```bash
-git clone https://github.com/tu_usuario/mi-proyecto-ionic3.git
+git clone https://github.com/davidromeroy/Local-events-agenda.git
 cd mi-proyecto-ionic3
 ```
 
@@ -76,30 +76,25 @@ Para ejecutar la app en el navegador:
 ionic serve
 ```
 
-## 📱 Ejecutar en dispositivo Android (o emulador)
-```bash
-ionic cordova platform add android
-ionic cordova run android
-```
 
-## 📦 Compilar para producción
-```bash
-ionic build --prod
-```
+## 📦 Compilar
 
 Construir plataforma para simular en android:
 ```bash
 ionic cordova platform add android@13.0.0
 ionic cordova build android
+```
+Si se construyó mal se debe eliminar la plataforma y volver a construir
+```bash
 ionic cordova platform rm android (Usar para eliminar la plataforma y volverla a crear)
 ```
 
+## 📱 Ejecutar en dispositivo Android (o emulador)
+```bash
+ionic cordova run android
+```
 
 
-
-
-
-## 📸 Cómo funciona y cómo se ve la app
 
 ### 🔍 Funcionalidades principales
 
