@@ -63,7 +63,9 @@ export class LocalEventsPage {
     });    
     await loader.present();    
     try {
-      const data: any = await this.http.get('http://localhost:8080/wordpress/wp-json/delportal/v1/events').toPromise();
+      // const data: any = await this.http.get('http://localhost:8080/wordpress/wp-json/delportal/v1/events').toPromise();
+      const data: any = await this.http.get('assets/data.json').toPromise();
+      console.log(data);
       this.events = data;
       // Verificar si es favorito
       for (const event of this.events) {
